@@ -6,13 +6,10 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'rest-client'
 gem 'devise'
 gem 'stripe'
-gem 'jquery-turbolinks'
-gem 'gmaps4rails'
 
 
 group :development do

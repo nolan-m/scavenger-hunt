@@ -2,17 +2,19 @@
 <html>
 <head>
   <title><%= content_for?(:title) ? yield(:title)+" | Scavenger Hunt" : "Scavenger Hunt" %></title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyDRmO5W40zix_0cTkQ1Nwr2d8DOHv8py54&sensor=false" %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+
+<%= csrf_meta_tags %>
+ <%= javascript_include_tag "application"%>
+
+
 </head>
 <body>
-
-
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <%= link_to "Homepage", root_url, :class => "navbar-text navbar-left" %>
-      <%= link_to "New Game", new_game_path, :class => "navbar-text navbar-left" %>
+
 
       <% if user_signed_in? %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete,
@@ -32,8 +34,8 @@
   <div class="container">
     <%= flash[:notice] %>
     <%= flash[:alert] %>
-    <%= yield %>
-  </div>
+     <%= yield %>
 
+  </div>
 </body>
 </html>
