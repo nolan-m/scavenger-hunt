@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: maps_scavenger_hunt_development
+
+test:
+  adapter: postgresql
+  database: maps_scavenger_hunt_test
