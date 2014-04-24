@@ -8,7 +8,19 @@
 </head>
 <body>
 
-<%= yield %>
+
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <%= link_to "Homepage", root_url, :class => "navbar-text navbar-left" %>
+      <%= link_to "New Game", new_game_path, :class => "navbar-text navbar-left" %>
+    </div>
+  </div>
+
+  <div class="container">
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

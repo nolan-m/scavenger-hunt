@@ -5,3 +5,7 @@
 
 * A player will get 5 clues to narrow down a secret location.  Player will get the choice to get another clue.  The player will get points based on the number of clues they received and closeness to that secret location.
 
+
+
+Controllers
+Views
