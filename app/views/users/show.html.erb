@@ -1,0 +1,16 @@
+<h2>Welcome <%= @user.email! %></h2>
+
+<h4>Played Games:</h4>
+<%= @user.played_games.each do |played_game| %>
+  <%= link_to played_game.game.name, game_path(played_game.game_id) %> | <%= played_game.score %>
+<% end %>
+
+
+<h4>Created Games:</h4>
+<%= @user.games.each do |game| %>
+  <%= link_to game.name, game_path(game.id) %>
+<% end %>
+
+
+
+

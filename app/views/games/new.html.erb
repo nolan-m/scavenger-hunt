@@ -27,12 +27,7 @@
       <%= label_tag 'Clue #4' %>
       <%= text_field_tag 'clues[]'  %>
     </div>
-
-    <div class="form-group">
-      <%= label_tag 'Clue #5' %>
-      <%= text_field_tag 'clues[]' %>
-    </div>
-
+`
     <%= f.hidden_field :location, :id => "location-field" %>
     <% if current_user != nil %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
