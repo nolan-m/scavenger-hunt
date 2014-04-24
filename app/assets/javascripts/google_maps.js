@@ -21,6 +21,7 @@ $(document).ready(function(){
     });
 
     map.setCenter(location);
+    $('#location-field').val(location);
     google.maps.event.clearListeners(map,'click')
 
   }

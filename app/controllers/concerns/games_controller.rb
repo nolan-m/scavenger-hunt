@@ -4,8 +4,11 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new(game_params)
+    separated_coords = Location.separate_lat_lon(params[:game][:location])
+    @location = Location.create(latitude: separated_coords[0], longitude: separated_coords[1])
+    @game = @location.games.new(game_params)
     if @game.save
+      dlkfldskf
       flash[:notice] = "Game created"
       redirect_to root_url
     else
@@ -16,6 +19,6 @@ class GamesController < ApplicationController
 
   private
     def game_params
-      params.require(:games).permit(:name, :location)
+      params.require(:game).permit(:name, :user_id)
     end
 end
