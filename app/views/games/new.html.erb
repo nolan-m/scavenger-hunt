@@ -1,21 +1,47 @@
 <%= render("layouts/errors", :object => @game) %>
 
 <h1>New Game</h1>
+<div class="col-md-6">
+  <%= form_for @game do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
 
-<%= form_for @game do |f| %>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+    <div class="form-group">
+      <%= label_tag 'Clue #1' %>
+      <%= text_field_tag 'clues[]' %>
+    </div>
 
-  <%= f.hidden_field :location, :id => "location-field" %>
-  <% if current_user != nil %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <div class="form-group">
+      <%= label_tag 'Clue #2' %>
+      <%= text_field_tag 'clues[]' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag 'Clue #3' %>
+      <%= text_field_tag 'clues[]' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag 'Clue #4' %>
+      <%= text_field_tag 'clues[]'  %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag 'Clue #5' %>
+      <%= text_field_tag 'clues[]' %>
+    </div>
+
+    <%= f.hidden_field :location, :id => "location-field" %>
+    <% if current_user != nil %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+    <% end %>
+
+    <%= f.submit(:class => "btn btn-primary") %>
   <% end %>
+</div>
 
-  <%= f.submit(:class => "btn btn-primary") %>
-<% end %>
-
-<div id="map-canvas">
+<div class="col-md=6" id="map-canvas">
 
 </div>
