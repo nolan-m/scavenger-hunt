@@ -4,7 +4,7 @@ last = guesses.pop()
 
 latlng = new google.maps.LatLng(last.latitude, last.longitude);
 
-locationlatlng = new google.maps.LatLng(<%= @played_game.game.location.latitude %>, <%= @played_game.game.location.longitude %>);
+locationlatlng = new google.maps.LatLng(<%= @playedgame.game.location.latitude %>, <%= @playedgame.game.location.longitude %>);
 
 
 distance = google.maps.geometry.spherical.computeDistanceBetween(latlng, locationlatlng);

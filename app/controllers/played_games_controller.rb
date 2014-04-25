@@ -21,7 +21,7 @@ class PlayedGamesController < ApplicationController
         @clues = @playedgame.game.clues
       end
       f.js do
-        @guesses = @PlayedGame.guesses
+        @guesses = @playedgame.guesses
       end
     end
   end
