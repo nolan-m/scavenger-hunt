@@ -1,15 +1,10 @@
-var createGuess = function(){
-  $('form').submit()
-};
-
-
 $(document).ready(function(){
   $('.form').hide();
   var map;
   function initialize() {
     var myLatlng = new google.maps.LatLng(0,0);
     var mapOptions = {
-      zoom: 1,
+      zoom: 2,
       center: myLatlng
     }
     map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -18,6 +13,14 @@ $(document).ready(function(){
       placeMarker(event.latLng);
 
     });
+
+    google.maps.event.trigger(map, 'resize');
+            map.setZoom( map.getZoom() );
+
+            google.maps.event.addListener(map, "idle", function(){
+                google.maps.event.trigger(map, 'resize');
+            });
+
   }
 
   function placeMarker(location) {
@@ -28,7 +31,6 @@ $(document).ready(function(){
 
     map.setCenter(location);
     $('#location-field').val(location);
-    createGuess();
     google.maps.event.clearListeners(map,'click')
 
   }
