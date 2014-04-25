@@ -16,6 +16,6 @@ function placeMarker(location) {
   $('.clue:hidden').first().show().append(" You are: " + distance + " km away");
 
 var endGame = function(){
-  $('body').append('<p> Your final guess is ' +distance+ ' KM away from answer location!</p>')
+  $('.clues').append('<p> Your final guess is ' +distance+ ' KM away from answer location!</p>')
 
 }
