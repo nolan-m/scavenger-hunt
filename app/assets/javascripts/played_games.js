@@ -8,6 +8,7 @@ var createGuess = function(){
 $(document).ready(function(){
   $('.form').hide();
   $('.clue').hide();
+
   var map;
   function initialize() {
     var myLatlng = new google.maps.LatLng(0,0);
