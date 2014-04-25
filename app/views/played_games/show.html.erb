@@ -1,5 +1,5 @@
 <%= javascript_include_tag 'played_games' %>
-<h1> <%= @played_game.game.name %> </h1>
+<h1> <%= @playedgame.game.name %> </h1>
 <p> Make your first of 5 guesses and use the clues to get closer and closer and closer</p>
 <div id="map-canvas">
 </div>
@@ -7,7 +7,7 @@
 <div class="form">
   <%= form_tag '/guesses', :method => :post, :remote => true  do %>
     <%= hidden_field_tag :location, nil, :id => "location-field" %>
-    <%= hidden_field_tag :played_game_id, nil, value: @played_game.id %>
+    <%= hidden_field_tag :played_game_id, nil, value: @playedgame.id %>
   <% end %>
 </div>
 

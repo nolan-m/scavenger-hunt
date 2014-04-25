@@ -1,15 +1,22 @@
 
-var guesses = <%= raw  @guesses.to_json %>
-last = guesses.pop()
-
-latlng = new google.maps.LatLng(last.latitude, last.longitude);
-
-locationlatlng = new google.maps.LatLng(<%= @played_game.game.location.latitude %>, <%= @played_game.game.location.longitude %>);
-
-
-distance = google.maps.geometry.spherical.computeDistanceBetween(latlng, locationlatlng);
+function placeMarker(location) {
+    var marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        draggable: true
+    });
+  }
 
 
-distance = Math.ceil(distance/1000);
+  var guesses = <%= raw  @guesses.to_json %>
+  last = guesses.pop()
+  latlng = new google.maps.LatLng(last.latitude, last.longitude);
+  locationlatlng = new google.maps.LatLng(<%= @playedgame.game.location.latitude %>, <%= @playedgame.game.location.longitude %>);
+  distance = google.maps.geometry.spherical.computeDistanceBetween(latlng, locationlatlng);
+  distance = Math.ceil(distance/1000);
+  $('.clue:hidden').first().show().append(" You are: " + distance + " km away");
 
-$('.clue:hidden').first().show().append(" You are: " + distance + " km away");
+var endGame = function(){
+  $('body').append('<p> Your final guess is ' +distance+ ' KM away from answer location!</p>')
+
+}

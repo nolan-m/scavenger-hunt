@@ -1,5 +1,22 @@
-var createGuess = function(){
-  $('form').submit()
+var clicks = 0;
+var createGuess = function(map){
+  if (clicks > 3){
+    google.maps.event.clearListeners(map, 'click')
+    endGame();
+
+       var marker = new google.maps.Marker({
+        position: locationlatlng,
+        map: map,
+
+
+    });
+       marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png')
+
+  } else {
+    $('form').submit()
+    clicks ++;
+
+  }
 };
 
 
@@ -24,6 +41,7 @@ $(document).ready(function(){
   }
 
   function placeMarker(location) {
+
     var marker = new google.maps.Marker({
         position: location,
         map: map,
@@ -32,7 +50,7 @@ $(document).ready(function(){
 
     map.setCenter(location);
     $('#location-field').val(location);
-    createGuess();
+    createGuess(map);
 
   }
 
