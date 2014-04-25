@@ -23,7 +23,8 @@ $(document).ready(function(){
   function placeMarker(location) {
     var marker = new google.maps.Marker({
         position: location,
-        map: map
+        map: map,
+        draggable: true
     });
 
     map.setCenter(location);
