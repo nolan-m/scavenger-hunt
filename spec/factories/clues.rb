@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :clue do
+    game_id  1
+    content { Faker::Company.catch_phrase }
   end
 end

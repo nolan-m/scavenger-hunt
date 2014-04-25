@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :games
   has_many :played_games
+  has_many :guesses
 end
