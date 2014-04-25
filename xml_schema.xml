@@ -113,7 +113,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="locations" row="id" />
 </row>
-<row name="game_id" null="1" autoincrement="0">
+<row name="played_game_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
