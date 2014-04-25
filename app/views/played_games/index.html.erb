@@ -1,0 +1,7 @@
+<h1> availible games </h1>
+<ul>
+  <h3>Click a game to play</h3>
+<% @games.each do |g| %>
+  <li><%= link_to g.name, played_games_path(:game_id =>  g.id), method: :post %></li>
+<% end %>
+</ul>
