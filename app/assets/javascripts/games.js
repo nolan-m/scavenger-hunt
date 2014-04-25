@@ -14,28 +14,25 @@ $(document).ready(function(){
 
     });
 
-    google.maps.event.trigger(map, 'resize');
-            map.setZoom( map.getZoom() );
-
-            google.maps.event.addListener(map, "idle", function(){
-                google.maps.event.trigger(map, 'resize');
-            });
 
   }
 
   function placeMarker(location) {
     var marker = new google.maps.Marker({
         position: location,
-        map: map
+        map: map,
+        draggable: true
     });
 
     map.setCenter(location);
     $('#location-field').val(location);
+
+    google.maps.event.addListener(marker, 'dragend', function(event){
+      $('#location-field').val(marker.position);
+    });
+
     google.maps.event.clearListeners(map,'click')
-
   }
-
-
 
   google.maps.event.addDomListener(window, 'load', initialize);
  });
