@@ -14,19 +14,15 @@ $(document).ready(function(){
 
     });
 
-    google.maps.event.trigger(map, 'resize');
-            map.setZoom( map.getZoom() );
 
-            google.maps.event.addListener(map, "idle", function(){
-                google.maps.event.trigger(map, 'resize');
-            });
 
   }
 
   function placeMarker(location) {
     var marker = new google.maps.Marker({
         position: location,
-        map: map
+        map: map,
+        draggable: true
     });
 
     map.setCenter(location);
