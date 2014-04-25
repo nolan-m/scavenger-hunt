@@ -4,8 +4,11 @@ var createGuess = function(){
 };
 
 
+
+
 $(document).ready(function(){
   $('.form').hide();
+  $('.clue').hide();
   var map;
   function initialize() {
     var myLatlng = new google.maps.LatLng(0,0);
@@ -30,7 +33,6 @@ $(document).ready(function(){
     map.setCenter(location);
     $('#location-field').val(location);
     createGuess();
-    google.maps.event.clearListeners(map,'click')
 
   }
 

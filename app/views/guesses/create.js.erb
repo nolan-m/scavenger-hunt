@@ -1,0 +1,4 @@
+
+var guesses = <%= raw  @guesses.to_json %>
+console.log(guesses)
+$('.clue:hidden').first().show();

@@ -4,7 +4,7 @@ class PlayedGamesController < ApplicationController
   end
 
   def new
-
+    @played_game = Played_game.new
   end
 
   def create
@@ -17,9 +17,10 @@ class PlayedGamesController < ApplicationController
       f.html do
         @guess = Guess.new
         @played_game = Played_game.find(params[:id])
+        @clues = @played_game.game.clues
       end
       f.js do
-        redirect_to root_path
+        @guesses = @played_game.guesses
       end
     end
   end
