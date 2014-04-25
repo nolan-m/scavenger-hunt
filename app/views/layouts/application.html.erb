@@ -15,6 +15,8 @@
 
 
       <% if user_signed_in? %>
+        <%= link_to "Play Game", games_path, :class => "navbar-text navbar-left" %>
+        <%= link_to "Create Game", new_game_path, :class => "navbar-text navbar-left" %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete,
             :class => "navbar-text navbar-right" %>
         <%= link_to "Logged in as #{current_user.email}", edit_user_registration_path,
