@@ -8,8 +8,9 @@ class PlayedGamesController < ApplicationController
   end
 
   def create
-   @played_game = Played_game.create(game_id: params[:game_id], user_id: current_user.id)
-    redirect_to played_game_path(@played_game)
+   @played_game = Played_game.create(game_id: params[:game][:game_id], user_id: current_user.id)
+
+   redirect_to played_game_path(@played_game)
   end
 
   def show
