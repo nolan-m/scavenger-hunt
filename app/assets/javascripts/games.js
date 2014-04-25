@@ -15,7 +15,6 @@ $(document).ready(function(){
     });
 
 
-
   }
 
   function placeMarker(location) {
@@ -27,11 +26,13 @@ $(document).ready(function(){
 
     map.setCenter(location);
     $('#location-field').val(location);
+
+    google.maps.event.addListener(marker, 'dragend', function(event){
+      $('#location-field').val(marker.position);
+    });
+
     google.maps.event.clearListeners(map,'click')
-
   }
-
-
 
   google.maps.event.addDomListener(window, 'load', initialize);
  });
