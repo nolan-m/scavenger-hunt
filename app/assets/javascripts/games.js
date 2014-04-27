@@ -41,6 +41,7 @@ $(document).ready(function(){
 
 
   }
+  
 
   function placeMarker(location) {
     var marker = new google.maps.Marker({

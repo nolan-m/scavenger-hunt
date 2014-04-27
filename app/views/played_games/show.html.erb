@@ -1,7 +1,6 @@
 <%= javascript_include_tag 'played_games' %>
-<h1> <%= @playedgame.game.name %> </h1>
-<p> Make your first of 5 guesses and use the clues to get closer and closer and closer</p>
-<div id="map-canvas">
+
+<div class='col-md-6 pull-right' id="map-canvas">
 </div>
 
 <div class="form">
@@ -11,7 +10,9 @@
   <% end %>
 </div>
 
-<div class='clues'>
+<div class='col-md-6 pull-left' id="clues">
+	<h1> <%= @playedgame.game.name %> </h1>
+<p> You have 5 guesses to find the secret location.  Click the map to make guess.  After each guess, you will be give another clue.</p>
   <ul>
   <% @clues.each do |clue| %>
     <li class="clue"><%= clue.content %></li>

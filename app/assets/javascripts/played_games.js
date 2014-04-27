@@ -11,7 +11,7 @@ var createGuess = function(map){
 
     });
        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png')
-
+      $('#clues').append('')
   } else {
     $('form').submit()
     clicks ++;

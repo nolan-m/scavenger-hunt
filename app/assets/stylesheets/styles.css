@@ -1,8 +1,26 @@
 
+.jumbotron {
+	background-color: white;
+}
 #map-canvas{
   margin-left: auto;
   margin-right: auto;
   border:2px solid black;
   height:500px;
   width:50%;
+}
+
+#clues_ {
+	width: 300px;
+	margin-left: 25px;
+}
+
+#game_name {
+	margin-left: 35px;
+	width: 300px;
+}
+#flash {
+	margin-left: 20px;
+	color: green;
+	text-align: center;
 }

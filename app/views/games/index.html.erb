@@ -1,17 +1,24 @@
-<h1> all of the games </h1>
 
-<ul>
-  <strong>Click a game to play!</strong>
+
+<div class="text-center">
+  <h1>Scavenger Hunt</h1>
+  <p class="lead">The hidden location guessing game</p>
+  <hr>
+</div>
+
+<div class='col-md-8'>
+	<h4>Current Games: </h4>
+	<ul>
     <% @games.each do |g| %>
       <% if g.user_id != nil %>
         <li> <%=link_to g.name, played_games_path(game: {game_id: g.id}), method: :post  %> | created by: <%= User.find(g.user_id).email %></li>
-        <li></li>
       <% end %>
     <% end %>
-</ul>
+	</ul>
+</div>
 
 
+<div class='col-md-4'>
+	<h4>Most Recent Games: </h4>
 
-
-
-
+</div>

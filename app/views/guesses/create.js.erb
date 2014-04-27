@@ -13,9 +13,9 @@ function placeMarker(location) {
   locationlatlng = new google.maps.LatLng(<%= @playedgame.game.location.latitude %>, <%= @playedgame.game.location.longitude %>);
   distance = google.maps.geometry.spherical.computeDistanceBetween(latlng, locationlatlng);
   distance = Math.ceil(distance/1000);
-  $('.clue:hidden').first().show().append(" You are: " + distance + " km away");
+  $('.clue:hidden').first().show().append(" - You are: " + distance + " km away");
 
 var endGame = function(){
-  $('.clues').append('<p> Your final guess is ' +distance+ ' KM away from answer location!</p>')
+  $('#clues').append('<p> Your final guess is ' +distance+ ' KM away from the secret location!</p>')
 
 }
