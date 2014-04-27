@@ -8,9 +8,12 @@ class PlayedGamesController < ApplicationController
   end
 
   def create
-   @playedgame = PlayedGame.create(game_id: params[:game][:game_id], user_id: current_user.id)
-
-   redirect_to played_game_path(@playedgame)
+    if user_signed_in?
+     @playedgame = PlayedGame.create(game_id: params[:game][:game_id], user_id: current_user.id)
+   else
+    @playedgame = PlayedGame.create(game_id: params[:game][:game_id])
+    end
+    redirect_to played_game_path(@playedgame)
   end
 
   def show
