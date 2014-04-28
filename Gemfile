@@ -7,9 +7,7 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
-gem 'rest-client'
 gem 'devise'
-gem 'stripe'
 
 
 group :development do
@@ -24,7 +22,6 @@ group :test, :development do
   gem 'capybara'
   gem 'launchy'
   gem 'faker'
-  gem 'dotenv-rails', :groups => [:development, :test]
   gem 'pry'
   gem 'pry-debugger'
 end
