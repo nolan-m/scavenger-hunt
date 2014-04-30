@@ -21,11 +21,22 @@ class PlayedGamesController < ApplicationController
       f.html do
         @guess = Guess.new
         @playedgame = PlayedGame.find(params[:id])
+        @game = @playedgame.game
         @clues = @playedgame.game.clues
       end
       f.js do
         @guesses = @playedgame.guesses
       end
     end
+  end
+
+  def update
+    @playedgame = PlayedGame.find(params[:id])
+    @playedgame.update(playedgames_params)
+  end
+
+private
+  def playedgames_params
+    params.require(:played_game).permit(:score)
   end
 end

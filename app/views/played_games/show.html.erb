@@ -1,21 +1,40 @@
 <%= javascript_include_tag 'played_games' %>
 
-<div class='col-md-6 pull-right' id="map-canvas">
+<div class="row">
+  <div class='col-md-6 pull-right' id="map-canvas">
+  </div>
+
+  <div class="guess_form" >
+    <%= form_tag '/guesses', :method => :post, :remote => true  do %>
+      <%= hidden_field_tag :location, nil, :id => "location-field" %>
+      <%= hidden_field_tag :played_game_id, nil, value: @playedgame.id %>
+    <% end %>
+  </div>
+
+  <div class='col-md-6 pull-left' id="clues">
+  	<h1> <%= @playedgame.game.name %> </h1>
+  <p> You have 5 guesses to find the secret location.  Click the map to make guess.  After each guess, you will be give another clue.</p>
+    <ul>
+    <% @clues.each do |clue| %>
+      <li class="clue"><%= clue.content %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
-<div class="form">
-  <%= form_tag '/guesses', :method => :post, :remote => true  do %>
-    <%= hidden_field_tag :location, nil, :id => "location-field" %>
-    <%= hidden_field_tag :played_game_id, nil, value: @playedgame.id %>
+<div class="score_form">
+  <%= form_for @playedgame, remote: true do |f| %>
+    <%= f.hidden_field :score %>
   <% end %>
 </div>
 
-<div class='col-md-6 pull-left' id="clues">
-	<h1> <%= @playedgame.game.name %> </h1>
-<p> You have 5 guesses to find the secret location.  Click the map to make guess.  After each guess, you will be give another clue.</p>
-  <ul>
-  <% @clues.each do |clue| %>
-    <li class="clue"><%= clue.content %></li>
-    <% end %>
-  </ul>
+<div class='row'>
+  <div class='col-md-6'>
+    <h4>High Games</h4>
+    <ol>
+      <% @game.best_scores.first(5).each do |score| %>
+        <li><%= score %></li>
+      <% end %>
+    </ol>
+  </div>
 </div>

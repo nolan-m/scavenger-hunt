@@ -1,19 +1,25 @@
 var clicks = 0;
+
+
 var createGuess = function(map){
   if (clicks > 3){
+    $('.guess_form form').submit();
+    clicks++;
     google.maps.event.clearListeners(map, 'click')
-    endGame();
 
        var marker = new google.maps.Marker({
         position: locationlatlng,
         map: map,
 
 
-    });
+       });
        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png')
       $('#clues').append('')
+
   } else {
-    $('form').submit()
+
+
+    $('.guess_form form').submit()
     clicks ++;
 
   }
@@ -69,13 +75,12 @@ $(document).ready(function(){
     var marker = new google.maps.Marker({
         position: location,
         map: map,
-        draggable: true
+        draggable: false
     });
 
     map.setCenter(location);
     $('#location-field').val(location);
     createGuess(map);
-
   }
 
   fixInfoWindow();

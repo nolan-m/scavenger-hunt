@@ -6,4 +6,12 @@ class Game < ActiveRecord::Base
 
 
   validates :location_id, :name, :presence => true
+
+  def best_scores
+    scores = []
+    self.played_games.each do |game|
+      scores << game.score
+    end
+    scores.compact.sort
+  end
 end

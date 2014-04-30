@@ -13,8 +13,7 @@ class GuessesController < ApplicationController
         @playedgame.guesses.each do |g|
           @guesses << g.location
         end
-       end
-
-     end
+      end
+    end
   end
 end
